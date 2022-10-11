@@ -1,0 +1,31 @@
+{
+  "name": "@ngi/nest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "dev": "rollup --config rollup.config.js --watch",
+    "build": "rollup --config rollup.config.js"
+  },
+  "dependencies": {
+    "@ngi/common": "1.0.0",
+    "dayjs": "1.11.5",
+    "zod": "3.19.1"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
+    "@nestjs/platform-express": "^8.4.7",
+    "@types/express": "^4.17.13"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=8",
+    "@nestjs/core": ">=8",
+    "@nestjs/platform-express": ">=8"
+  },
+  "files": [
+    "dist"
+  ]
+}

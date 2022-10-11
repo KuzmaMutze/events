@@ -1,0 +1,14 @@
+{
+  "name": "@events/common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsc",
+    "build": "tsc --watch",
+    "clear": "rimraf dist"
+  },
+  "author": "",
+  "license": "ISC"
+}

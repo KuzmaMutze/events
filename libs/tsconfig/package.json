@@ -1,0 +1,11 @@
+{
+  "name": "@events/tsconfig",
+  "version": "1.0.0",
+  "description": "Typescript configurations",
+  "main": "index.js",
+  "license": "ISC",
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.react.json"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "@events/tsconfig/tsconfig.react.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2021",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist"
+  },
+  "include": ["src"]
+}

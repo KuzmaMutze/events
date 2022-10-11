@@ -1,0 +1,40 @@
+{
+  "name": "@events/bff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "nest start --watch --debug --preserveWatchOutput",
+    "build": "nest build",
+    "start": "node dist/main.js",
+    "clear": "rimraf dist",
+    "lint": "eslint src --max-warnings=10"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@integrations/events": "1.0.0",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/config": "^2.2.0",
+    "@nestjs/core": "^9.0.11",
+    "@nestjs/platform-express": "^9.0.11",
+    "@nestjs/serve-static": "^3.0.0",
+    "@ngi/common": "1.0.0",
+    "@events/common": "^1.0.0",
+    "@events/contracts": "^1.0.0",
+    "@events/user-profile": "^1.0.0",
+    "cookie-parser": "1.4.6",
+    "rxjs": "^7.5.6",
+    "zod": "3.18.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^9.0.0",
+    "@nestjs/schematics": "^9.0.1",
+    "@events/tsconfig": "^1.0.0",
+    "@types/cookie-parser": "1.4.3",
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.7.5"
+  }
+}

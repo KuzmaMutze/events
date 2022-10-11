@@ -1,25 +1,56 @@
 {
-  "name": "my-turborepo",
-  "version": "0.0.0",
+  "name": "events",
+  "version": "1.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
+    "dev": "turbo run dev",
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "build:events:docker": "npm run build",
+    "test:events:unit": "echo \"No tests yet\"",
+    "start:events:docker": "npm run start -w @events/bff",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lintfix": "turbo run lintfix"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend",
+    "apps/bff",
+    "libs/common",
+    "libs/contracts",
+    "libs/events-ui",
+    "libs/integrations-events",
+    "libs/ngi-common",
+    "libs/ngi-react",
+    "libs/ngi-nest",
+    "libs/tsconfig",
+    "libs/user-profile"
+  ],
   "devDependencies": {
-    "eslint-config-custom": "*",
-    "prettier": "latest",
-    "turbo": "latest"
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "copyfile": "^0.1.2",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.7.1",
+    "rollup": "^2.79.1",
+    "turbo": "^1.2.4",
+    "typescript": "^4.8.4"
   },
-  "engines": {
-    "node": ">=14.0.0"
+  "optionalDependencies": {
+    "turbo-linux-64": "1.2.4",
+    "turbo-windows-64": "1.2.4"
   },
-  "dependencies": {},
-  "packageManager": "npm@8.1.2"
+  "dependencies": {
+    "@events/tsconfig": "1.0.0"
+  }
 }

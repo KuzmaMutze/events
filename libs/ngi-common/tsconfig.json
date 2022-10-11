@@ -1,0 +1,16 @@
+{
+  "extends": "@events/tsconfig/tsconfig.base.json",
+  "compilerOptions": {
+    "target": "ES2021",
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "dist",
+    "rootDir": "src",
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@events/user-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "scripts": {
+    "dev": "rollup --config rollup.config.js --watch",
+    "prebuild": "npm run clear",
+    "build": "rollup --config rollup.config.js",
+    "clear": "rimraf dist",
+    "lint": "eslint src --max-warnings=10"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ngi/common": "1.0.0",
+    "zod": "3.19.1"
+  }
+}
