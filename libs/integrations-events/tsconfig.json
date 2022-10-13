@@ -2,10 +2,15 @@
   "compilerOptions": {
     "target": "ES2021",
     "module": "ESNext",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "dist",
+    "strict": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "skipLibCheck": true,
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "strict": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

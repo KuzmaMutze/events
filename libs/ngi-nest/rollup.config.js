@@ -19,5 +19,5 @@ export default {
       sourcemap: true,
     },
   ],
-  external: ['@ngi/common', '@nestjs/common'],
+  external: ['@ngi/common', '@nestjs/common', '@integrations/events'],
 };

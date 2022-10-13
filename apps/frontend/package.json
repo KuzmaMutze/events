@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "vite --host --clearScreen false",
     "build": "tsc && vite build",
-    "postbuild": "copyfile -u 1 -a \"dist/**/*./\" ../bff/dist/public/",
     "preview": "vite preview",
     "clear": "rimraf dist",
     "lint": "eslint src --max-warnings=10",

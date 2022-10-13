@@ -3,9 +3,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { MiddlewareConsumer, NestModule, Module } from '@nestjs/common';
 import { EventsClient } from '@integrations/events';
-import { envSchema } from './utils/env.schema';
-import { EVENTS_CLIENT } from './constants';
+import { Env, envSchema } from './utils/env.schema';
+import { EVENTS_CLIENT, PROFILE_DEFAULT_PROVIDER } from './constants';
 import { ProfileController } from './controllers/profile.controller';
+import { ProfileModule } from '@ngi/nest';
+import { defaultUser } from '@events/user-profile';
 
 @Module({
   imports: [
@@ -16,6 +18,16 @@ import { ProfileController } from './controllers/profile.controller';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'public'),
       exclude: ['/api/*', '/health/*', '/auth/*'],
+    }),
+    ProfileModule.forRootAsync({
+      imports: [ConfigModule, AppModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService<Env, true>) => {
+        return {
+          applicationName: 'events',
+          baseURL: configService.get('PROFILE_URL'),
+        };
+      },
     }),
   ],
   controllers: [ProfileController],
@@ -50,8 +62,12 @@ import { ProfileController } from './controllers/profile.controller';
       },
       inject: [ConfigService],
     },
+    {
+      provide: PROFILE_DEFAULT_PROVIDER,
+      useValue: () => defaultUser,
+    },
   ],
-  exports: [EVENTS_CLIENT],
+  exports: [EVENTS_CLIENT, PROFILE_DEFAULT_PROVIDER],
 })
 export class AppModule implements NestModule {
   constructor(private readonly configService: ConfigService) {}

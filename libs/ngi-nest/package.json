@@ -10,6 +10,7 @@
     "build": "rollup --config rollup.config.js"
   },
   "dependencies": {
+    "@integrations/events": "1.0.0",
     "@ngi/common": "1.0.0",
     "dayjs": "1.11.5",
     "zod": "3.19.1"

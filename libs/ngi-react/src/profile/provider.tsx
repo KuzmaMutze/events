@@ -38,7 +38,7 @@ export function UserProfileProvider<AppName extends string, T extends {}>({
   type FullProfile = Profile<AppName, T>;
   const [isLoading, setIsLoading] = useState(true);
 
-  const [profile, setProfile] = useState(fullProfileAtom);
+  const [profile, setProfile] = useAtom(fullProfileAtom);
 
   useEffect(() => {
     (async () => {
@@ -59,9 +59,7 @@ export function UserProfileProvider<AppName extends string, T extends {}>({
   }, []);
 
   useEffect(() => {
-    if (isLoading) {
-      return;
-    }
+    if (isLoading) return;
     (async () => {
       saveUserProfileToLocalStorage(profile);
     })();
@@ -77,10 +75,7 @@ export function UserProfileProvider<AppName extends string, T extends {}>({
 
 export const useUserProfileLoading = () => {
   const ctx = useContext(UserProfileLoadingContext);
-  if (ctx === undefined) {
-    return true;
-  }
-
+  if (ctx === undefined) return true;
   return ctx;
 };
 

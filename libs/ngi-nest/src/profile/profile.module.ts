@@ -1,5 +1,8 @@
 import { DynamicModule, Module, ModuleMetadata } from '@nestjs/common';
-import { ProfileService, PROFILE_OPTIONS } from '.';
+import { AppProfileClient } from '@integrations/events';
+import { ProfileController } from './profile.controller';
+import { PROFILE_OPTIONS, PROFILE_CLIENT } from './constants';
+import { ProfileService } from './profile.service';
 
 export interface ProfileModuleOptions {
   baseURL: string;
@@ -16,6 +19,23 @@ export interface ProfileModuleAsyncOptions
 
 @Module({})
 export class ProfileModule {
+  static forRoot(options: ProfileModuleOptions): DynamicModule {
+    common.providers?.push(
+      {
+        provide: PROFILE_OPTIONS,
+        useValue: options,
+      },
+      {
+        provide: PROFILE_CLIENT,
+        useFactory: (options: ProfileModuleOptions) =>
+          new AppProfileClient({
+            baseURL: options.baseURL,
+          }),
+        inject: [PROFILE_OPTIONS],
+      }
+    );
+    return common;
+  }
   static forRootAsync(options: ProfileModuleAsyncOptions): DynamicModule {
     common.imports = options.imports;
     common.providers?.push(
@@ -27,14 +47,9 @@ export class ProfileModule {
       {
         provide: PROFILE_CLIENT,
         useFactory: (options: ProfileModuleOptions) =>
-          new AppProfileClient(
-            {
-              baseURL: options.baseURL,
-            },
-            {
-              enableLogs: true,
-            }
-          ),
+          new AppProfileClient({
+            baseURL: options.baseURL,
+          }),
         inject: [PROFILE_OPTIONS],
       }
     );

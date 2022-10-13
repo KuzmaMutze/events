@@ -7,7 +7,8 @@ const intSchema = z.preprocess(
 
 export const envSchema = z.object({
   PORT: intSchema,
-  EVENTS_API_URL: z.any(),
+  EVENTS_API_URL: z.string().url(),
+  PROFILE_URL: z.string().url(),
 });
 
 export type Env = z.infer<typeof intSchema>;

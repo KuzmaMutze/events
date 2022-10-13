@@ -13,7 +13,7 @@ export async function upgradeUserProfile<
 }
 
 export async function fetchDefaultUserProfile() {
-  return await fetcher.post('/default').then((x) => x.data);
+  return await fetcher.get('/default').then((x) => x.data);
 }
 
 export const userProfileKey = 'user-profile';
