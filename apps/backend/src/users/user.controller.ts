@@ -1,34 +1,25 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt.auth.guard';
+import { Role } from 'src/auth/role.decorator';
+import { RoleGuard } from 'src/auth/role.guard';
 import { UserEntity } from 'src/entities/user.entity';
 import { CreateUserInput } from 'src/users/inputs/create.user.input';
-import { UpdateUserInput } from 'src/users/inputs/update.user.input';
 import { UserService } from 'src/users/user.service';
 
 @Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Get()
+  async getAllUsers(): Promise<UserEntity[]> {
+    return await this.userService.getAllUsers();
+  }
+
   @Post('/create')
-  async createUser(
+  async registration(
     @Body() createUserInput: CreateUserInput
   ): Promise<UserEntity> {
     return await this.userService.createUser(createUserInput);
-  }
-
-  @Post('/update')
-  async updateUser(
-    @Body() updateUserInput: UpdateUserInput
-  ): Promise<UserEntity> {
-    return await this.userService.updateUser(updateUserInput);
-  }
-
-  @Get('/getUser')
-  async getOneUser(id: number): Promise<UserEntity> {
-    return await this.userService.getOneUser(id);
-  }
-
-  @Get('/getUsers')
-  async getAllUsers(): Promise<UserEntity[]> {
-    return await this.userService.getAllUsers();
   }
 }
