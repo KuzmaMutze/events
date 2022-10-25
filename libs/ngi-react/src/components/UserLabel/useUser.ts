@@ -34,7 +34,11 @@ export const useUser = (props?: UseUserProps) => {
 
 const fetchUserIdentity = async () => {
   try {
-    return fetch('/auth/user')
+    return fetch('/auth/user', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => data as UserData);
   } catch (error) {

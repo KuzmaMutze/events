@@ -1,6 +1,7 @@
 import { AxiosRequestConfig, AxiosRequestHeaders } from 'axios';
 import { errorFormatter, BaseFetcher, LogsConfig } from './common';
-import { GetRoleByUserRequest } from './contracts/auth/getRoleByUserRequest';
+import { CreateUserData } from './contracts/auth/createUserData';
+import { LoginUserData } from './contracts/auth/loginUserData';
 import { Headers } from './headers';
 
 export class AuthClient extends BaseFetcher {
@@ -8,11 +9,11 @@ export class AuthClient extends BaseFetcher {
     super(config, { enableLogs, errorFormatter });
   }
 
-  getRoleByUser(query: GetRoleByUserRequest) {
-    return this.get('/user/getByUser', {
-      params: query,
-    });
+  login(userData: LoginUserData) {
+    return this.post('/auth/login', userData);
+  }
+
+  registration(userData: CreateUserData) {
+    return this.post('/auth/registration', userData);
   }
 }
-// в раздумие что не обязательно делать мидл веер а просто у чуваков с видоса копирнуть
-// а post upgrade делать прокидывая боди

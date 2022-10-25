@@ -1,10 +1,14 @@
 import { Flex, Grid, Box, Loader, Sider } from '@events/events-ui';
 import { UserLabel, useUser, useUserProfileLoading } from '@ngi/react';
+import { useQuery } from 'react-query';
 import { CrashGuard } from './components/crash';
+import { fetcher } from './lib/fetcher';
 import { Pages } from './pages';
 
 export const App = () => {
   const { isLoading, user } = useUser();
+
+  const { data } = useQuery('123', () => fetcher.get(`users`));
 
   const isUerProfileLoading = useUserProfileLoading();
 

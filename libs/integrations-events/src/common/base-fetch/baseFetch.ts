@@ -62,7 +62,7 @@ export abstract class BaseFetcher {
     return this.axiosInstance.request<T>(config).then((res) => res.data);
   }
 
-  get<T, D = any>(url: string, config: AxiosRequestConfig<D>): Promise<T> {
+  get<T, D = any>(url: string, config?: AxiosRequestConfig<D>): Promise<T> {
     return this.axiosInstance.get<T>(url, config).then((res) => res.data);
   }
 

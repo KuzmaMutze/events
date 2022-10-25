@@ -16,6 +16,7 @@
   "license": "ISC",
   "workspaces": [
     "apps/frontend",
+    "apps/backend",
     "apps/bff",
     "libs/common",
     "libs/contracts",

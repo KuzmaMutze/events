@@ -7,16 +7,22 @@ export class EventsClient extends BaseFetcher {
     super(config, { enableLogs, errorFormatter });
   }
 
-  //   get(indentity: string, query: any): Promise<any> {
+  //   get(token: string, query: any): Promise<any> {
   //   return this.get("", query, {
   //     headers: this.getHeaders({indentity})
   //   })
   //   }
 
+  getUsers(token: string) {
+    return this.get('/users', {
+      headers: this.getHeaders({ token }),
+    });
+  }
+
   private getHeaders(fields: Headers): AxiosRequestHeaders {
     const headers: AxiosRequestHeaders = {};
-    if (fields.indentity) {
-      headers['userName'] = fields.indentity;
+    if (fields.token) {
+      headers['Authorization'] = fields.token;
     }
 
     return headers;

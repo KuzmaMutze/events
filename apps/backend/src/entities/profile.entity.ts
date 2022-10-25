@@ -19,10 +19,4 @@ export class ProfileEntity {
 
   @Column()
   state: string;
-
-  @CreateDateColumn()
-  createAt: Date;
-
-  @UpdateDateColumn()
-  updateAt: Date;
 }

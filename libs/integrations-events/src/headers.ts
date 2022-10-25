@@ -1,3 +1,3 @@
 export interface Headers {
-  indentity?: string;
+  token?: string;
 }

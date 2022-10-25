@@ -1,5 +1,5 @@
 {
-  "extends": "@events/tsconfig/tsconfig.react.json",
+  "extends": "@events/tsconfig/tsconfig.base.json",
   "compilerOptions": {
     "module": "CommonJS",
     "target": "ES2021",
