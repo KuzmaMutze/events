@@ -1,4 +1,3 @@
-// import { NgiError } from '@ngi/common';
 import axios, { AxiosError } from 'axios';
 
 const fetcher = axios.create({

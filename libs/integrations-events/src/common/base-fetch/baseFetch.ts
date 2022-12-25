@@ -1,4 +1,4 @@
-import { defaultErrorFormatter, ErrorFormatter } from '../error';
+import { defaultErrorFormatter, ErrorFormatter } from '../errors';
 import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { getRequestLog, getResponseLog, getResponseErrorLog } from './logs';
 
