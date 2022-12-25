@@ -3,10 +3,14 @@ import { AppProfileClient } from '@integrations/events';
 import { ProfileController } from './profile.controller';
 import { PROFILE_OPTIONS, PROFILE_CLIENT } from './constants';
 import { ProfileService } from './profile.service';
+import { Migrations, SchemaVersions } from '@ngi/common';
 
 export interface ProfileModuleOptions {
   baseURL: string;
   applicationName: string;
+
+  schemaVersions: SchemaVersions;
+  migration: Migrations;
 }
 
 export interface ProfileModuleAsyncOptions

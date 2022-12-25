@@ -1,8 +1,9 @@
 import { z } from 'zod';
 
 export const commonProfileSchema = z.object({
+  version: z.literal(0).default(0),
   theme: z.enum(['dark', 'light']).default('dark'),
-  lastUpdate: z
+  lastUpdated: z
     .preprocess(
       (arg) =>
         typeof arg === 'string' || arg instanceof Date

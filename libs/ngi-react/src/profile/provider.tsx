@@ -16,8 +16,10 @@ import {
 import { useUpdateAtom } from 'jotai/utils';
 import {
   fetchDefaultUserProfile,
+  fetchUserProfile,
   getUserProfileFromLocalStorage,
   saveUserProfileToLocalStorage,
+  saveUserProfileToRemote,
   upgradeUserProfile,
 } from '@/lib';
 import { useColorMode } from '@events/events-ui';
@@ -43,15 +45,22 @@ export function UserProfileProvider<AppName extends string, T extends {}>({
   useEffect(() => {
     (async () => {
       try {
-        const localProfile = getUserProfileFromLocalStorage<FullProfile>();
+        const localProfile =
+          (await getUserProfileFromLocalStorage()) as FullProfile;
         if (localProfile) {
-          const upgradedProfile = await upgradeUserProfile(localProfile);
-          setProfile(upgradedProfile);
+          setProfile(await upgradeUserProfile(localProfile));
         } else {
-          setProfile(await fetchDefaultUserProfile());
+          setProfile(await fetchUserProfile());
         }
       } catch (error) {
-        throw new Error("Couldn't load user settings. Please try again later");
+        console.warn("Couldn't load profile from remote");
+
+        const localProfile = getUserProfileFromLocalStorage<FullProfile>();
+        if (localProfile) setProfile(await upgradeUserProfile(localProfile));
+        else {
+          const defaultProfile = await fetchDefaultUserProfile();
+          setProfile(defaultProfile);
+        }
       } finally {
         setIsLoading(false);
       }
@@ -62,6 +71,11 @@ export function UserProfileProvider<AppName extends string, T extends {}>({
     if (isLoading) return;
     (async () => {
       saveUserProfileToLocalStorage(profile);
+      try {
+        const result = await saveUserProfileToRemote<any, any>(profile);
+      } catch (error) {
+        console.warn("Couldn't save profile to remote");
+      }
     })();
   }, [profile]);
 

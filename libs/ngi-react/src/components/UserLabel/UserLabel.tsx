@@ -11,7 +11,7 @@ export const UserLabel = (props: UserLabelProps) => {
   return (
     <Skeleton isLoaded={!isLoading} {...paragraphProps}>
       <Paragraph>
-        {isLoading ? 'Loading...' : isError ? 'Error' : user?.displayName}
+        {isLoading ? 'Loading...' : isError ? 'Error' : user?.name}
       </Paragraph>
     </Skeleton>
   );

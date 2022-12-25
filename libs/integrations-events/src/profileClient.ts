@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import { errorFormatter, BaseFetcher, LogsConfig } from './common';
-import { CreateProfileDto } from './contracts/profile/createProfile';
+import { ProfileDto } from './contracts';
 
 export class AppProfileClient extends BaseFetcher {
   constructor(config: AxiosRequestConfig, enableLogs?: LogsConfig | boolean) {
@@ -8,22 +8,26 @@ export class AppProfileClient extends BaseFetcher {
   }
 
   getProfileForUser<T = any>(
-    username: string,
+    email: string,
     applicationName: string
-  ): Promise<T> {
+  ): Promise<ProfileDto<T>> {
     return this.get('/profile', {
       params: {
-        username,
+        email,
         applicationName,
       },
     });
   }
 
-  saveProfileForUser<T = any>(user: CreateProfileDto): Promise<T> {
-    return this.post('/profile', user, {
+  saveProfileForUser<T = any>(
+    applicationName: string,
+    email: string,
+    profile: T
+  ): Promise<ProfileDto<T>> {
+    return this.post('/profile', profile, {
       params: {
-        username: user.username,
-        applicationName: user.username,
+        email,
+        applicationName,
       },
     });
   }

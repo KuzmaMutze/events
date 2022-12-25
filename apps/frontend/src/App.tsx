@@ -1,6 +1,8 @@
-import { Flex, Grid, Box, Loader, Sider } from '@events/events-ui';
+import { Flex, Grid, Box, Loader, Sider, Button } from '@events/events-ui';
 import { UserLabel, useUser, useUserProfileLoading } from '@ngi/react';
+import { useAtom } from 'jotai';
 import { useQuery } from 'react-query';
+import { themeAtom, toggleThemeAtom } from './atoms/atoms';
 import { CrashGuard } from './components/crash';
 import { fetcher } from './lib/fetcher';
 import { Pages } from './pages';
@@ -10,9 +12,11 @@ export const App = () => {
 
   const { data } = useQuery('123', () => fetcher.get(`users`));
 
-  const isUerProfileLoading = useUserProfileLoading();
+  const [theme, setTheme] = useAtom(toggleThemeAtom);
 
-  if (isUerProfileLoading || isLoading) {
+  const isUserProfileLoading = useUserProfileLoading();
+
+  if (isUserProfileLoading || isLoading) {
     return <Loader />;
   }
 
@@ -29,7 +33,18 @@ export const App = () => {
         <Sider />
         <Grid gridTemplateRows="auto minmax(0, 1fr)" gridTemplateColumns="100%">
           <Flex justifyContent="end" paddingX="3">
-            <UserLabel />
+            <UserLabel />{' '}
+            <Button
+              onClick={() => {
+                if (theme === 'dark') {
+                  setTheme('light');
+                } else {
+                  setTheme('dark');
+                }
+              }}
+            >
+              Theme
+            </Button>
           </Flex>
           <Box
             padding="3"

@@ -2,7 +2,8 @@ import { z } from 'zod';
 import { settingsSchema } from './settings';
 
 export const userProfileSchema = z.object({
-  lastUpdate: z
+  version: z.literal(0).default(0),
+  lastUpdated: z
     .preprocess(
       (arg) =>
         typeof arg === 'string' || arg instanceof Date
@@ -11,7 +12,7 @@ export const userProfileSchema = z.object({
       z.date()
     )
     .default(() => new Date()),
-  settings: settingsSchema,
+  settings: settingsSchema.default(settingsSchema.parse({})),
 });
 
 export type UserProfile = z.infer<typeof userProfileSchema>;

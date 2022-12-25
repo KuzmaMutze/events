@@ -9,9 +9,8 @@ import {
   EVENTS_CLIENT,
   PROFILE_DEFAULT_PROVIDER,
 } from './constants';
-import { ProfileController } from './controllers/profile.controller';
 import { ProfileModule, user, UserModule } from '@ngi/nest';
-import { defaultUser } from '@events/user-profile';
+import { defaultUser, migration, schemaVersions } from '@events/user-profile';
 import { UserController } from './controllers/user.controller';
 import { AuthController } from './controllers/auth.controller';
 @Module({
@@ -32,11 +31,13 @@ import { AuthController } from './controllers/auth.controller';
         return {
           applicationName: 'events',
           baseURL: configService.get('PROFILE_URL'),
+          schemaVersions: schemaVersions,
+          migration,
         };
       },
     }),
   ],
-  controllers: [ProfileController, UserController, AuthController],
+  controllers: [UserController, AuthController],
   providers: [
     {
       provide: EVENTS_CLIENT,

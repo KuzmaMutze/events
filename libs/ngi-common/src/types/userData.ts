@@ -1,7 +1,7 @@
 import { Role } from './role';
 
 export type UserData = {
-  displayName: string;
-  unifiedName: string;
+  name: string;
+  email: string;
   role: Role;
 };

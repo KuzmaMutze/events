@@ -15,6 +15,6 @@ export interface CommonProfileChunk {
 
 export type ApplicationProfileChunk<Key extends string, Value extends {}> = {
   [K in Key]: Value & {
-    lastUpdate: Date;
+    lastUpdated: Date;
   };
 };

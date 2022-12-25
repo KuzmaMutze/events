@@ -1,3 +1,3 @@
-import { Migration } from '@ngi/common';
+import { Migrations } from '@ngi/common';
 
-export const migration: Migration = {};
+export const migration: Migrations = {};

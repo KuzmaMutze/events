@@ -1,5 +1,5 @@
-export interface CreateProfileDto {
+export interface ProfileDto<T> {
   username: string;
   applicationName: string;
-  state: string;
+  profile: T;
 }

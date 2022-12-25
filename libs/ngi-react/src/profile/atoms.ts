@@ -6,7 +6,7 @@ export function atomWithLastUpdate<Read extends {}, Write extends {}>(
   return atom(
     (get) => get(_atom),
     (get, set, payload: Write) => {
-      set(_atom, { ...payload, lastUpdate: new Date().toISOString() });
+      set(_atom, { ...payload, lastUpdated: new Date().toISOString() });
     }
   );
 }
