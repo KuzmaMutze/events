@@ -1,0 +1,47 @@
+import { styled } from '@ngi-components/theme'; 
+import { Icon } from './icon.styled'; 
+import {
+    {{#each iconNames}}
+      {{this}}Icon,
+    {{/each}}
+} from './icons';
+
+export default {
+  title: 'Icons/Icons',
+  component: Icon,
+};
+
+const Row = styled('div', {
+  display: 'flex',
+  gap: '$8'
+});
+
+const Column = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+});
+
+const Grid = styled('div', {
+  display: 'grid',
+  gap: '$4',
+  rowGap: '$12',
+  gridTemplateColumns: 'repeat(10, 1fr)'
+});
+
+export const Basic = () => {
+  return <StarIcon/>;
+}
+
+export const All = () => {
+  return (
+    <Grid>
+      {{#each icons}}
+      <Column>
+        <p>{{this}}Icon</p>
+        <{{this}}Icon/>
+      </Column>
+      {{/each}}
+    </Grid>
+  )
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "moduleResolution": "Node",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "preserveWatchOutput": true,
+    "target": "ESNext",
+    "jsx": "react-jsx"
+  }
+}

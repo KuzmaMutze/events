@@ -1,0 +1,60 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "prettier", "import", "react-hooks"],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "import/newline-after-import": "warn",
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "import/no-relative-parent-imports": "warn",
+    "no-unused-vars": "off",
+    "react/display-name": "off",
+    "import/no-cycle": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "varsIgnorePattern": "([iI]gnored)|(^_)",
+        "argsIgnorePattern": "([iI]gnored)|(^_)"
+      }
+    ]
+  },
+  "ignorePatterns": ["**/node_modules", "scripts", "dist"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx", "**/*.ts"],
+      "rules": {
+        "react/react-in-jsx-scope": ["off"],
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+        "@typescript-eslint/no-empty-interface": [
+          "warn",
+          {
+            "allowSingleExtends": false
+          }
+        ]
+        // "react/display-name": ["off"],
+        // "react/prop-types": ["off"]
+      }
+    }
+  ]
+}

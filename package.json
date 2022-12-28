@@ -20,7 +20,6 @@
     "apps/bff",
     "libs/common",
     "libs/contracts",
-    "libs/events-ui",
     "libs/integrations-events",
     "libs/ngi-common",
     "libs/ngi-react",

@@ -1,0 +1,10 @@
+import { {{ capitalize componentName }} } from '@ngi-components/{{ dashCase componentName }}';
+
+export default {
+    title: '{{ capitalize componentName }}',
+    component: '{{ capitalize componentName }}'
+}
+
+export const {{ dashCase componentName }} = () => {
+    return <{{ capitalize componentName }}/>
+}

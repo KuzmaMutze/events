@@ -9,13 +9,7 @@
   "trailingComma": "es5",
   "bracketSpacing": true,
   "arrowParens": "always",
-  "importOrder": [
-    "telemetry",
-    "^react$",
-    "^react-dom$",
-    "<THIRD_PARTY_MODULES>",
-    "^[./]"
-  ],
+  "importOrder": ["^react$", "^react-dom$", "<THIRD_PARTY_MODULES>", "^[./]"],
   "importOrderGroupNamespaceSpecifiers": true,
   "importOrderParserPlugins": ["jsx", "typescript", "decorators-legacy"]
 }
