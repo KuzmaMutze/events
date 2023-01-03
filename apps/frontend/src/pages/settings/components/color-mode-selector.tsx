@@ -1,4 +1,4 @@
-import { Box, Flex, Switch } from '@events/events-ui';
+import { Box, Flex, Switch } from 'events-components';
 import { themeAtom, toggleThemeAtom } from '@/atoms/atoms';
 import { useAtomValue, useSetAtom } from 'jotai';
 

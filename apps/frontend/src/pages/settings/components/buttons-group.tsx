@@ -1,4 +1,4 @@
-import { useConfirm, ButtonGroup, Button } from '@events/events-ui';
+import { useConfirm, ButtonGroup, Button } from 'events-components';
 import { fullProfileAtom } from '@/atoms/atoms';
 import { useResetProfileToDefault } from '@ngi/react';
 import { useCallback } from 'react';

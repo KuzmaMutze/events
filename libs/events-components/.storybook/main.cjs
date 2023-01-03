@@ -10,7 +10,7 @@ const configuration = {
   },
 };
 
-const nodeMajorVersion = Number(process.version.mode.split('.')[0]);
+const nodeMajorVersion = Number(process.versions.node.split('.')[0]);
 // The fields added to features speed up the loading of the application,
 // but they only work for Node that has a major version less than 17. Explanation of why:
 // 1. Empirically, it was found that when we add the features field (with any keys, even just an empty object), the `core.build` to webpack is forcibly switched

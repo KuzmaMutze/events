@@ -1,0 +1,33 @@
+{
+  "name": "@events-components/nav-bar",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "dev": "npm run build -- --watch",
+    "clean": "rimraf dist .turbo"
+  },
+  "author": "",
+  "dependencies": {
+    "@events-components/forward-as": "1.0.0",
+    "@events-components/icons": "1.0.0",
+    "@events-components/theme": "1.0.0"
+  },
+  "peerDependencies": {
+    "@stitches/react": ">=1",
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@events-components/tabs",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "dev": "npm run build -- --watch",
+    "clean": "rimraf dist .turbo"
+  },
+  "author": "",
+  "dependencies": {
+    "@events-components/icons": "1.0.0",
+    "@events-components/react-utils": "1.0.0",
+    "@events-components/theme": "1.0.0",
+    "@events-components/use-controllable-state": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "@stitches/react": ">=1"
+  },
+  "files": [
+    "dist"
+  ]
+}

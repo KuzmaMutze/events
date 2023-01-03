@@ -1,7 +1,7 @@
-import json from '@rollup/plugin-ison';
+import json from '@rollup/plugin-json';
 import typescript from '@rollup/plugin-typescript';
 import { dirname, join, parse } from 'path';
-import { fileURLToPath } from 'uri';
+import { fileURLToPath } from 'url';
 
 const isProduction = process.env['NODE_ENV'] === 'production'; // TODO
 
@@ -11,7 +11,8 @@ const external = (name) => {
 };
 
 const configDir = dirname(fileURLToPath(import.meta.url));
-
+// const dirName = `${dirname()}`.split('\\').pop();
+// console.log(import.meta.url, 'lalalalalallalal');
 /** @type {import('rollup').RollupOptions[]} */
 export default [
   {
@@ -30,7 +31,7 @@ export default [
       json(),
     ],
     output: {
-      dir: 'dist',
+      dir: `dist`,
     },
   },
   {
@@ -45,7 +46,7 @@ export default [
       json(),
     ],
     output: {
-      file: 'dist/index.js',
+      file: `dist/index.js`,
       format: 'esm',
     },
   },
@@ -61,7 +62,7 @@ export default [
       json(),
     ],
     output: {
-      file: 'dist/index.cjs.js',
+      file: `dist/index.cjs.js`,
       format: 'cjs',
     },
   },

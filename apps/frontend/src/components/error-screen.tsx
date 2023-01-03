@@ -1,4 +1,4 @@
-import { Flex, Heading, Paragraph, Center, Icon } from '@events/events-ui';
+import { Flex, Heading, Paragraph, Center, Icon } from 'events-components';
 
 export interface ErrorScreenProps {
   title: string;

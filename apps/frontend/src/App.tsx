@@ -1,4 +1,4 @@
-import { Flex, Grid, Box, Loader, Sider, Button } from '@events/events-ui';
+import { styled } from '@events-components/react';
 import { UserLabel, useUser, useUserProfileLoading } from '@ngi/react';
 import { useAtom } from 'jotai';
 import { useQuery } from 'react-query';
@@ -6,6 +6,8 @@ import { themeAtom, toggleThemeAtom } from './atoms/atoms';
 import { CrashGuard } from './components/crash';
 import { fetcher } from './lib/fetcher';
 import { Pages } from './pages';
+
+const AppContainer = styled;
 
 export const App = () => {
   const { isLoading, user } = useUser();

@@ -1,4 +1,4 @@
-import { Loader } from '@events/events-ui';
+import { Loader } from 'events-components';
 import { lazy, Suspense } from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import { MainPage } from './pages/main';

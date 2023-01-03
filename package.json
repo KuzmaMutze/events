@@ -16,11 +16,11 @@
   "license": "ISC",
   "workspaces": [
     "apps/frontend",
-    "apps/backend",
     "apps/bff",
     "libs/common",
     "libs/contracts",
     "libs/integrations-events",
+    "libs/events-components/packages/*",
     "libs/ngi-common",
     "libs/ngi-react",
     "libs/ngi-nest",
@@ -29,6 +29,7 @@
   ],
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.5.0",
+    "@events/tsconfig": "1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "copyfile": "^0.1.2",
@@ -48,8 +49,5 @@
   "optionalDependencies": {
     "turbo-linux-64": "1.2.4",
     "turbo-windows-64": "1.2.4"
-  },
-  "dependencies": {
-    "@events/tsconfig": "1.0.0"
   }
 }

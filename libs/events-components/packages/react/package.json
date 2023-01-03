@@ -1,0 +1,80 @@
+{
+  "name": "@events-components/react",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "dev": "npm run build -- --watch",
+    "clean": "rimraf dist .turbo"
+  },
+  "author": "KORM C",
+  "license": "ISC",
+  "dependencies": {
+    "@events-components/accordion": "1.0.0",
+    "@events-components/breadcrumbs": "1.0.0",
+    "@events-components/button": "1.0.0",
+    "@events-components/checkbox": "1.0.0",
+    "@events-components/chip": "1.0.0",
+    "@events-components/chips-input": "1.0.0",
+    "@events-components/circular-progress": "1.0.0",
+    "@events-components/collapse": "1.0.0",
+    "@events-components/date-picker": "1.0.0",
+    "@events-components/drawer": "1.0.0",
+    "@events-components/dropdown": "1.0.0",
+    "@events-components/form-control": "1.0.0",
+    "@events-components/grid-table": "1.0.0",
+    "@events-components/group": "1.0.0",
+    "@events-components/icon-button": "1.0.0",
+    "@events-components/icons": "1.0.0",
+    "@events-components/input": "1.0.0",
+    "@events-components/link": "1.0.0",
+    "@events-components/list-box": "1.0.0",
+    "@events-components/loader": "1.0.0",
+    "@events-components/menu": "1.0.0",
+    "@events-components/modal": "1.0.0",
+    "@events-components/nav-bar": "1.0.0",
+    "@events-components/notification": "1.0.0",
+    "@events-components/number-input": "1.0.0",
+    "@events-components/pagination": "1.0.0",
+    "@events-components/popover": "1.0.0",
+    "@events-components/popup": "1.0.0",
+    "@events-components/portal": "1.0.0",
+    "@events-components/property": "1.0.0",
+    "@events-components/radio-button": "1.0.0",
+    "@events-components/react-utils": "1.0.0",
+    "@events-components/sticker": "1.0.0",
+    "@events-components/switch": "1.0.0",
+    "@events-components/tabs": "1.0.0",
+    "@events-components/tag": "1.0.0",
+    "@events-components/theme": "1.0.0",
+    "@events-components/tooltip": "1.0.0",
+    "@events-components/transfer": "1.0.0",
+    "@events-components/typography": "1.0.0",
+    "@events-components/use-click-outside": "1.0.0",
+    "@events-components/use-confirm": "1.0.0",
+    "@events-components/use-controllable-state": "1.0.0",
+    "@events-components/use-disclosure": "1.0.0",
+    "@events-components/use-key-event": "1.0.0",
+    "@events-components/use-merge-refs": "1.0.0",
+    "@events-components/use-navigation": "1.0.0",
+    "@events-components/use-notification": "1.0.0",
+    "@events-components/use-pagination": "1.0.0"
+  },
+  "peerDependencies": {
+    "@stitches/react": ">=1",
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ]
+}

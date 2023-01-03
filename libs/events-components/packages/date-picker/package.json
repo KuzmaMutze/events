@@ -1,0 +1,39 @@
+{
+  "name": "@events-components/date-picker",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c ../../rollup.config.js",
+    "dev": "npm run build -- --watch",
+    "clean": "rimraf dist .turbo"
+  },
+  "author": "",
+  "dependencies": {
+    "@events-components/theme": "1.0.0",
+    "@events-components/icons": "1.0.0",
+    "@events-components/input": "1.0.0",
+    "@events-components/popover": "1.0.0",
+    "@events-components/react-utils": "1.0.0",
+    "@events-components/use-click-outside": "1.0.0",
+    "@events-components/use-controllable-state": "1.0.0",
+    "@events-components/use-disclosure": "1.0.0",
+    "date-fns": "2.29.3",
+    "react-number-format": "5.1.2"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ]
+}

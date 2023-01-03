@@ -5,7 +5,7 @@ import {
   SiderButton,
   SiderTitle,
   SiderTopSection,
-} from '@events/events-ui';
+} from 'events-components';
 import { Link } from 'react-router-dom';
 
 export const Sider = () => {

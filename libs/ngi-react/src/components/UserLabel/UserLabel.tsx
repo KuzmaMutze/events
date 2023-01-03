@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paragraph, ParagraphProps, Skeleton } from '@events/events-ui';
+import { Paragraph, ParagraphProps, Skeleton } from 'events-components';
 import { useUser, UseUserProps } from './useUser';
 
 export interface UserLabelProps extends UseUserProps, ParagraphProps {}

@@ -1,4 +1,4 @@
-import { Heading, Flex } from '@events/events-ui';
+import { Heading, Flex } from 'events-components';
 import { ButtonsGroup } from './components/buttons-group';
 import { ColorModeSelector } from './components/color-mode-selector';
 

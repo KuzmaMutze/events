@@ -22,7 +22,7 @@ import {
   saveUserProfileToRemote,
   upgradeUserProfile,
 } from '@/lib';
-import { useColorMode } from '@events/events-ui';
+import { useColorMode } from 'events-components';
 
 const UserProfileLoadingContext = createContext<boolean | undefined>(undefined);
 

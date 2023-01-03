@@ -1,5 +1,5 @@
 import { fetcher } from '@/lib/fetcher';
-import { Box, Button } from '@events/events-ui';
+import { Box, Button } from 'events-components';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 

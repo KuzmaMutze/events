@@ -1,6 +1,6 @@
 import React, { ComponentType, PropsWithChildren } from 'react';
 import { isNullOrUndef } from '@events/common';
-import { Box, Button, Paragraph, useConfirm } from '@events/events-ui';
+import { Box, Button, Paragraph, useConfirm } from 'events-components';
 import {
   ErrorBoundary,
   ErrorBoundaryProps,

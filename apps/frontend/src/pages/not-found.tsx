@@ -1,4 +1,4 @@
-import { Flex, Heading, Link } from '@events/events-ui';
+import { Flex, Heading, Link } from 'events-components';
 import { Link as RouterLink } from 'react-router-dom';
 
 export const NotFoundPage = () => {

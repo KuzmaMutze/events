@@ -14,7 +14,6 @@
     "@babel/preset-env": "^7.18.9",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "@events/events-ui": "1.0.0",
     "@ngi/common": "1.0.0",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
@@ -26,7 +25,6 @@
     "webpack": "^5.74.0"
   },
   "peerDependencies": {
-    "@events/events-ui": "*",
     "axios": ">0.19",
     "jotai": ">=1.7",
     "react": "^18"
