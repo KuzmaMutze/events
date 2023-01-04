@@ -1,34 +1,31 @@
+import { CalendarIcon, SettingsIcon } from '@events-components/icons';
+import { Link } from '@events-components/link';
 import {
-  Icon,
-  Sider as SiderContainer,
-  SiderBottomSection,
-  SiderButton,
-  SiderTitle,
-  SiderTopSection,
-} from 'events-components';
-import { Link } from 'react-router-dom';
+  NavBar,
+  NavBarBottomSection,
+  NavBarButton,
+  NavBarHeader,
+  NavBarTopSection,
+} from '@events-components/nav-bar';
 
 export const Sider = () => {
   return (
-    <SiderContainer
-      // @ts-ignore
-      sx={{
-        '@media print': {
-          display: 'none',
-        },
-      }}
-    >
-      <SiderTitle longTitle="" shortTitle="" as={Link} to="/" />
-      <SiderTopSection>
-        <SiderButton icon={<Icon icon="Calendar" />} as={Link} to="/">
+    <NavBar>
+      <NavBarHeader productName="Events manager" />
+      <NavBarTopSection>
+        <NavBarButton to="/" selected as={Link} icon={<CalendarIcon />}>
           Events
-        </SiderButton>
-      </SiderTopSection>
-      <SiderBottomSection>
-        <SiderButton icon={<Icon icon="Cog" />} as={Link} to="/settings">
+        </NavBarButton>
+      </NavBarTopSection>
+      <NavBarBottomSection>
+        <NavBarButton
+          to="/settings"
+          as={Link}
+          icon={<SettingsIcon size="sm" />}
+        >
           Settings
-        </SiderButton>
-      </SiderBottomSection>
-    </SiderContainer>
+        </NavBarButton>
+      </NavBarBottomSection>
+    </NavBar>
   );
 };

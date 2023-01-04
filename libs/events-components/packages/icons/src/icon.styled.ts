@@ -1,7 +1,7 @@
 import { ComponentProps } from '@stitches/react';
 import { styled } from '@events-components/theme';
 
-export type IconProps = ComponentProps<typeof Icon>;
+export interface IconProps extends ComponentProps<typeof Icon> {}
 
 export const Icon = styled('svg', {
   color: 'inherit',

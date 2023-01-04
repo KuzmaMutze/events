@@ -1,12 +1,15 @@
-import ReactDOM from 'react-dom/client';
-import { CrashGuard } from './components/crash';
-import { ThemeProvider } from './components/theme-provider';
-import { BrowserRouter } from 'react-router-dom';
-import { QueryClientProvider } from 'react-query';
-import { queryClient } from './lib/queryClient';
+import {
+  ConfirmProvider,
+  NotificationProvider,
+} from '@events-components/react';
 import { UserProfileProvider } from '@ngi/react';
-import { fullProfileAtom } from './atoms/atoms';
+import ReactDOM from 'react-dom/client';
+import { QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { fullProfileAtom } from './atoms/atoms';
+import { CrashGuard } from './components/crash';
+import { queryClient } from './lib/queryClient';
 
 // Use this wrapper to integrate Jotai atoms with the Redux Devtools
 // import { useAtomsDebugValue, useAtomDevtools } from "jotai/devtools"
@@ -16,21 +19,24 @@ import { App } from './App';
 //  return <>{children}</>
 // }
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 root.render(
-  <ThemeProvider>
-    <CrashGuard>
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <UserProfileProvider
-            appName="events"
-            fullProfileAtom={fullProfileAtom}
-          >
-            <App />
-          </UserProfileProvider>
-        </QueryClientProvider>
-      </BrowserRouter>
-    </CrashGuard>
-  </ThemeProvider>
+  <NotificationProvider>
+    <ConfirmProvider>
+      <CrashGuard>
+        <BrowserRouter>
+          <QueryClientProvider client={queryClient}>
+            <UserProfileProvider
+              appName="events"
+              fullProfileAtom={fullProfileAtom}
+            >
+              <App />
+            </UserProfileProvider>
+          </QueryClientProvider>
+        </BrowserRouter>
+      </CrashGuard>
+    </ConfirmProvider>
+  </NotificationProvider>
 );

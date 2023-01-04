@@ -11,6 +11,7 @@
     "lintfix": "eslint src --fix"
   },
   "dependencies": {
+    "@aam/react": "1.0.0",
     "@events-components/react": "1.0.0",
     "@events/common": "1.0.0",
     "@events/contracts": "1.0.0",

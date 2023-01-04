@@ -1,25 +1,30 @@
-import { Flex, Heading, Link } from 'events-components';
-import { Link as RouterLink } from 'react-router-dom';
+import { styled } from '@events-components/theme';
+import { Link } from 'react-router-dom';
+
+const NotFoundPageContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '80%',
+  gap: '$8',
+});
+const Status = styled('div', {
+  fontSize: '$48',
+  lineHeight: '$52',
+});
+const NotFoundText = styled('div', {
+  fontSize: '$28',
+  lineHeight: '$32',
+});
 
 export const NotFoundPage = () => {
   return (
-    <Flex
-      justify="center"
-      flexDirection="column"
-      alignItems="center"
-      height="full"
-      gap="3"
-    >
-      <Heading as="h1" fontSize="9x1">
-        404
-      </Heading>
-      <Heading as="h2" fontSize="9x1">
-        Page not found
-      </Heading>
-      <Link as={RouterLink} to="/">
-        Go to the main page
-      </Link>
-    </Flex>
+    <NotFoundPageContainer>
+      <Status>404</Status>
+      <NotFoundText>Page Not Found</NotFoundText>
+      <Link to="/">Go To The Main Page</Link>
+    </NotFoundPageContainer>
   );
 };
 

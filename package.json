@@ -21,6 +21,7 @@
     "libs/contracts",
     "libs/integrations-events",
     "libs/events-components/packages/*",
+    "libs/authorizedaccessmodule/packages/*",
     "libs/ngi-common",
     "libs/ngi-react",
     "libs/ngi-nest",
@@ -51,3 +52,4 @@
     "turbo-windows-64": "1.2.4"
   }
 }
+

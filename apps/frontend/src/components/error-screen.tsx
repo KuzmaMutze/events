@@ -1,4 +1,5 @@
-import { Flex, Heading, Paragraph, Center, Icon } from 'events-components';
+import { Button } from '@events-components/button';
+import { styled } from '@events-components/theme';
 
 export interface ErrorScreenProps {
   title: string;
@@ -6,22 +7,35 @@ export interface ErrorScreenProps {
   retry?: () => void;
 }
 
+const ErrorScreenContainer = styled('div', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100%',
+});
+
+const ErrorRow = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  gap: '$12',
+});
+
 export const ErrorScreen = (props: ErrorScreenProps) => {
   const { title, message, retry } = props;
 
   return (
-    <Center height="full">
-      <Flex flexDirection="column" alignItems="center" gap="2">
-        <Icon icon="ExclamationCircle" color="red" width="10" height="10" />
-        <Heading>Error</Heading>
-        <Paragraph fontSize="xl">{title}</Paragraph>
-        {message && <Paragraph color="gray.500">{message}</Paragraph>}
+    <ErrorScreenContainer>
+      <ErrorRow>
+        <h3>Error</h3>
+        <h5>{title}</h5>
+        {message && <p>{message}</p>}
         {retry && (
-          <Paragraph onClick={retry} size="sm">
+          <Button onClick={retry} size="sm">
             Retry
-          </Paragraph>
+          </Button>
         )}
-      </Flex>
-    </Center>
+      </ErrorRow>
+    </ErrorScreenContainer>
   );
 };

@@ -1,25 +1,37 @@
 import React, { ComponentType, PropsWithChildren } from 'react';
+import { fullProfileAtom } from '@/atoms/atoms';
+import { Button } from '@events-components/button';
+import { Group } from '@events-components/group';
+import { styled } from '@events-components/theme';
+import { useConfirm } from '@events-components/use-confirm';
 import { isNullOrUndef } from '@events/common';
-import { Box, Button, Paragraph, useConfirm } from 'events-components';
+import { useResetProfileToDefault } from '@ngi/react';
 import {
   ErrorBoundary,
   ErrorBoundaryProps,
   FallbackProps,
   withErrorBoundary,
 } from 'react-error-boundary';
-import { fullProfileAtom } from '@/atoms/atoms';
-import { useResetProfileToDefault } from '@ngi/react';
 
 const DefaultChildren = () => {
   return (
     <>
-      <Paragraph>An unknown error occurred.</Paragraph>
-      <Paragraph>
-        You can try to recover from the error, or reload the page
-      </Paragraph>
+      <h3>An Unknown Error Occurred.</h3>
+      <h6>You Сan Try To Recover From The Error, Or Reload The Page</h6>
     </>
   );
 };
+
+const CrashScreenContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+  height: '100vh',
+  flexShrink: 0,
+  gap: '$24',
+});
 
 export interface CrashScreenProps {
   horizontal?: boolean;
@@ -29,53 +41,26 @@ export interface CrashScreenProps {
 export const CrashScreen = (
   props?: CrashScreenProps
 ): ComponentType<FallbackProps> => {
-  const { horizontal = false, children } = props ?? {};
+  const { children } = props ?? {};
   return ({ /* error, */ resetErrorBoundary }: FallbackProps) => {
     const resetProfile = useResetProfileToDefault(fullProfileAtom);
     const confirm = useConfirm();
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: horizontal ? 'row' : 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-
-          width: 'full',
-          height: horizontal ? 'max' : 'full',
-
-          overflow: 'auto',
-          flexShrink: 0,
-          gap: 3,
-        }}
-      >
+      <CrashScreenContainer>
         {children ?? <DefaultChildren />}
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyItems: 'center',
-            gap: 3,
-          }}
-        >
-          <Button colorScheme="blue" onClick={resetErrorBoundary}>
+        <Group>
+          <Button colorScheme="white" onClick={resetErrorBoundary}>
             Try to recover
           </Button>
-          <Button
-            variant="outline"
-            colorScheme="blue"
-            onClick={() => location.reload()}
-          >
+          <Button colorScheme="blue" onClick={() => location.reload()}>
             Refresh page
           </Button>
           <Button
-            variant="outline"
-            colorScheme="orange"
+            colorScheme="red"
             onClick={() =>
               confirm({
-                title: 'Are you sure?',
-                message: 'This action cannot be undone',
+                title: 'Are You Sure?',
+                description: 'This Action Cannot Be Undone',
                 onConfirm: async () => {
                   await resetProfile();
                   // NOTE: give some time to sync profile
@@ -83,13 +68,15 @@ export const CrashScreen = (
                     location.reload();
                   }, 500);
                 },
+                confirmButtonText: 'Submit',
+                cancelButtonText: 'Cancle',
               })
             }
           >
             Reset Settings
           </Button>
-        </Box>
-      </Box>
+        </Group>
+      </CrashScreenContainer>
     );
   };
 };
