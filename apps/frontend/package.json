@@ -14,7 +14,6 @@
     "@aam/react": "1.0.0",
     "@events-components/react": "1.0.0",
     "@events/common": "1.0.0",
-    "@events/contracts": "1.0.0",
     "@events/user-profile": "1.0.0",
     "@hookform/resolvers": "2.9.8",
     "@ngi/react": "1.0.0",

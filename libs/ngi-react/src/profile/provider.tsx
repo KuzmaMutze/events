@@ -22,7 +22,6 @@ import {
   saveUserProfileToRemote,
   upgradeUserProfile,
 } from '@/lib';
-import { useColorMode } from 'events-components';
 
 const UserProfileLoadingContext = createContext<boolean | undefined>(undefined);
 
@@ -108,9 +107,10 @@ const ProfileSyncer = (props: ProfileSyncerProps) => {
   const { atom } = props;
   const { common } = useAtomValue(atom);
 
-  const { setColorMode } = useColorMode();
+  // const { setColorMode } = useColorMode();
   useEffect(() => {
-    setColorMode(common.theme);
+    // TODO: dark theme
+    // setColorMode(common.theme);
   }, [common.theme]);
 
   return null;

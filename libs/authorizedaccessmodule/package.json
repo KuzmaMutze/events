@@ -2,13 +2,21 @@
   "name": "authorized-access-module",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
-    "build:packages": "turbo run build",
-    "dev:packages": "turbo run dev --parallel"
+    "test": "jest",
+    "test:watch": "jest --watch --onlyChanged",
+    "dev": "preconstruct dev",
+    "build": "preconstruct build",
+    "prepublish": "npm run build",
+    "publish": "changeset publish --no-git-tag",
+    "changelog": "changeset",
+    "update-version": "changeset version"
   },
   "keywords": [],
   "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.18.2",
     "@babel/plugin-proposal-decorators": "^7.18.2",
@@ -20,19 +28,24 @@
     "@rollup/plugin-typescript": "^8.3.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0-alpha.7",
-    "@types/babel__core": "^7.1.20",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^28.1.1",
     "babel-plugin-transform-typescript-metadata": "0.3.2",
+    "jest": "^28.1.1",
+    "jest-dom": "^4.0.0",
+    "jest-environment-jsdom": "^28.1.1",
     "rollup": "^2.75.6",
     "rollup-plugin-dts": "^4.2.2",
     "ts-jest": "^28.0.4",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   },
-  "workspaces": [
-    "packages/*"
-  ],
-  "optionalDependencies": {
-    "turbo-linux-64": "1.6.3",
-    "turbo-windows-64": "1.6.3"
+  "preconstruct": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "dependencies": {
+    "babel-plugin-transform-goober": "^1.2.0"
   }
 }

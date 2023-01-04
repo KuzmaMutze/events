@@ -4,8 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build:packages": "turbo run build",
-    "dev:packages": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
     "storybook": "start-storybook -p 6006",
     "cosmos": "cosmos",
     "build-storybook": "build-storybook",

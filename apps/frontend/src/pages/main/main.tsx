@@ -1,29 +1,21 @@
-import { fetcher } from '@/lib/fetcher';
-import { Box, Button } from 'events-components';
-import { useForm } from 'react-hook-form';
-import { useMutation } from 'react-query';
+import { styled } from '@events-components/theme';
+import { fullProfileAtom } from '@/atoms/atoms';
+import { useAtomValue } from 'jotai';
+
+const Header = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'mixmax(0, 1fr) auto',
+  alignItems: 'center',
+});
 
 export const MainPage = () => {
-  const { register, handleSubmit } = useForm();
-
-  const { mutate, isLoading } = useMutation(
-    (data: any) => {
-      return fetcher.post(`/auth/login`, data).then((res) => res.data);
-    },
-    {
-      onSuccess: (data) => {
-        localStorage.setItem('token', data.token);
-      },
-    }
-  );
+  // hack: derived atoms dont get populated without this
+  useAtomValue(fullProfileAtom);
 
   return (
-    <Box>
-      <form onSubmit={handleSubmit(mutate)}>
-        <input {...register('email')} />
-        <input {...register('password')} />
-        <Button type="submit" />
-      </form>
-    </Box>
+    <div>
+      <Header>Haeder</Header>
+      Content
+    </div>
   );
 };

@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "@events/common": "^1.0.0",
-    "@events/contracts": "^1.0.0",
     "@events/user-profile": "^1.0.0",
     "@integrations/events": "1.0.0",
     "@nestjs/common": "^9.0.11",

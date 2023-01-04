@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
-import { Role, RoleProvider } from '@aam/react';
+import { RoleProvider } from '@aam/react';
+import { Role } from '@aam/core'; // FIX
 import { globalStyles, Loader, styled } from '@events-components/react';
 import { UserLabel, useUser, useUserProfileLoading } from '@ngi/react';
 import { CrashGuard } from './components/crash';
