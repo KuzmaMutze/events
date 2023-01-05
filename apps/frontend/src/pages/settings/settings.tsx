@@ -1,13 +1,19 @@
-import { Heading, Flex } from 'events-components';
+import { styled } from '@events-components/react';
 import { ButtonsGroup } from './components/buttons-group';
 import { ColorModeSelector } from './components/color-mode-selector';
 
+const SettingsContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '$16',
+});
+
 export const SettingsPage = () => {
   return (
-    <Flex>
-      <Heading paddingBottom="5">Settings</Heading>
+    <SettingsContainer>
+      <h1>Settings</h1>
       <ColorModeSelector />
       <ButtonsGroup />
-    </Flex>
+    </SettingsContainer>
   );
 };

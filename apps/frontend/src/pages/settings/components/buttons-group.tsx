@@ -1,7 +1,9 @@
-import { useConfirm, ButtonGroup, Button } from 'events-components';
-import { fullProfileAtom } from '@/atoms/atoms';
-import { useResetProfileToDefault } from '@ngi/react';
 import { useCallback } from 'react';
+import { fullProfileAtom } from '@/atoms/atoms';
+import { Button } from '@events-components/button';
+import { Group } from '@events-components/group';
+import { useConfirm } from '@events-components/use-confirm';
+import { useResetProfileToDefault } from '@ngi/react';
 import { useNavigate } from 'react-router-dom';
 
 export const ButtonsGroup = () => {
@@ -13,7 +15,7 @@ export const ButtonsGroup = () => {
   const confirmAndReset = useCallback(() => {
     confirm({
       title: 'Confirmation Title',
-      message: 'Action Confirmation Helper Text',
+      description: 'Action Confirmation Helper Text',
       onConfirm: () => {
         resetProfile();
       },
@@ -21,13 +23,13 @@ export const ButtonsGroup = () => {
   }, []);
 
   return (
-    <ButtonGroup>
-      <Button onClick={() => navigate(-1)} colorScheme="telegram">
+    <Group>
+      <Button onClick={() => navigate(-1)} colorScheme="blue">
         Close
       </Button>
-      <Button onClick={confirmAndReset} colorScheme="orange">
+      <Button onClick={confirmAndReset} colorScheme="red">
         Reset settings
       </Button>
-    </ButtonGroup>
+    </Group>
   );
 };

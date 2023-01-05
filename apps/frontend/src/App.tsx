@@ -1,6 +1,5 @@
 import { useEffect, useMemo } from 'react';
-import { RoleProvider } from '@aam/react';
-import { Role } from '@aam/core'; // FIX
+import { RoleProvider, Role } from '@aam/react';
 import { globalStyles, Loader, styled } from '@events-components/react';
 import { UserLabel, useUser, useUserProfileLoading } from '@ngi/react';
 import { CrashGuard } from './components/crash';
@@ -9,7 +8,7 @@ import { Pages } from './pages';
 
 const AppContainer = styled('div', {
   display: 'grid',
-  gridTemplateColumns: 'auto mixmax(0, 1fr)',
+  gridTemplateColumns: 'auto minmax(0, 1fr)',
   gridTemplateRows: '100%',
   height: '100%',
 });
@@ -64,17 +63,15 @@ export const App = () => {
   return (
     <RoleProvider role={role}>
       <AppContainer>
-        <CrashGuard>
-          <Sider />
-          <Content>
-            <UserInfo>
-              <UserLabel />
-            </UserInfo>
-            <PagesContainer>
-              <Pages />
-            </PagesContainer>
-          </Content>
-        </CrashGuard>
+        <Sider />
+        <Content>
+          <UserInfo>
+            <UserLabel />
+          </UserInfo>
+          <PagesContainer>
+            <Pages />
+          </PagesContainer>
+        </Content>
       </AppContainer>
     </RoleProvider>
   );

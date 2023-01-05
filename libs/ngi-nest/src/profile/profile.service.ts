@@ -273,12 +273,10 @@ export class ProfileService {
 
   async getCommonOrDefault(user: UserData): Promise<CommonProfile> {
     try {
-      return (
-        (await this.profileClient.getProfileForUser(
-          user.email,
-          COMMON_PROFILE_KEY
-        )) ?? { ...defaultCommonProfile }
-      );
+      return ((await this.profileClient.getProfileForUser(
+        user.email,
+        COMMON_PROFILE_KEY
+      )) ?? { ...defaultCommonProfile }) as any; // TODO: fix
     } catch (error) {
       if (error) throw `${error} getCommonOrDefault`;
       return {

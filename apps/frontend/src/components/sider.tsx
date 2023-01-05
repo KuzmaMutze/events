@@ -1,5 +1,4 @@
 import { CalendarIcon, SettingsIcon } from '@events-components/icons';
-import { Link } from '@events-components/link';
 import {
   NavBar,
   NavBarBottomSection,
@@ -7,6 +6,7 @@ import {
   NavBarHeader,
   NavBarTopSection,
 } from '@events-components/nav-bar';
+import { Link } from 'react-router-dom';
 
 export const Sider = () => {
   return (
